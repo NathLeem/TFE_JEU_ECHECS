@@ -21,7 +21,19 @@ namespace TFE_JEU_ECHECS
 
         }
 
-        public void AfficheMoves()
+        public void ShowMoves()
+        {
+
+        }
+        public void Rock()
+        {
+
+        }
+        public void BigRock()
+        {
+
+        }
+        public void Taking()
         {
 
         }

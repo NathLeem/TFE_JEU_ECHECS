@@ -25,7 +25,7 @@ namespace TFE_JEU_ECHECS
 
         }
 
-        public void AfficheMoves()
+        public void ShowMoves()
         {
 
         }
