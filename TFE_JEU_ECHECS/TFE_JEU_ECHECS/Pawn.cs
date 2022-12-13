@@ -6,13 +6,13 @@ namespace TFE_JEU_ECHECS
 {
     class Pawn
     {
-        private int[,] _position = new int[8, 8];
+        private int[] _position = new int[2];
         private bool _dead = false;
         private bool _passantYes = false;
         private bool _doubleMove = true;
         private List<string> _moves = new List<string>();
 
-        public Pawn(int[,] position, bool dead, bool passantYes, bool doubleMove, List<string> moves)
+        public Pawn(int[] position, bool dead, bool passantYes, bool doubleMove, List<string> moves)
         {
             this._position = position;
             this._dead = dead;
@@ -21,7 +21,7 @@ namespace TFE_JEU_ECHECS
             this._moves = moves;
         }
 
-        public int[,] Position
+        public int[] Position
         {
             get { return _position; }
             set { _position = value; }
@@ -71,7 +71,7 @@ namespace TFE_JEU_ECHECS
         {
             for (int i = 0; i < _moves.Count; i++)
             {
-                plateau.cases[]
+                //plateau.cases[]
             }
         }
     }
