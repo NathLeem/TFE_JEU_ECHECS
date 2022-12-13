@@ -21,6 +21,7 @@ namespace TFE_JEU_ECHECS
     public partial class MainWindow : Window
     {
         Button[,] cases = new Button[8, 8];
+        string[,] plate = new string[8, 8];
         public MainWindow()
         {
             InitializeComponent();
@@ -88,7 +89,7 @@ namespace TFE_JEU_ECHECS
         }
         public void SetUpGame()
         {
-            List<string> pawns = new List<string>()
+            List<string> pieces = new List<string>()
             {
                 "♜","♞","♝","♛","♚","♝","♞","♜",
                 "♟","♟️","♟️","♟️","♟️","♟️","♟️","♟️",
@@ -98,10 +99,28 @@ namespace TFE_JEU_ECHECS
 
             foreach (Button button in grdPlate.Children.OfType<Button>())
             {
+                int j = 0;
+                int i = 0;
                 if (button.Content == "?")
                 {
-                    button.Content = pawns[0];
-                    pawns.RemoveAt(0);
+                    button.Content = pieces[0];
+                    plate[i,j] = pieces[0];
+                    pieces.RemoveAt(0);
+                }
+
+                if(pieces[0] == "♟" || pieces[0] == "♙")
+                {
+                    Pawn pawns = new Pawn(,false, false, true, );
+                }
+                
+                if(i < 8)
+                {
+                    i++;
+                }
+                else
+                {
+                    i = 0;
+                    j++;
                 }
             }
         }
