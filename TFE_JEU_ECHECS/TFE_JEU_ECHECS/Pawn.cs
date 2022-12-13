@@ -52,7 +52,9 @@ namespace TFE_JEU_ECHECS
         }
 
 
+
         public void MovesPossible(string typePion, int nLigne, int nColonne)
+
         {
             if (typePion == "♟")
             {
