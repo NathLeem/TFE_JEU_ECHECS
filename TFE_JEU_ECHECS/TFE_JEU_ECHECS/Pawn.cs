@@ -71,7 +71,7 @@ namespace TFE_JEU_ECHECS
         {
             for (int i = 0; i < _moves.Count; i++)
             {
-                plateau.cases[]
+                plateau.cases[];
             }
         }
     }
