@@ -21,7 +21,7 @@ namespace TFE_JEU_ECHECS
     public partial class MainWindow : Window
     {
         Button[,] cases = new Button[8, 8];
-        string[,] plate = new string[8, 8];
+        public int[,] memPlate = new int[8, 8];
         public MainWindow()
         {
             InitializeComponent();
@@ -97,23 +97,24 @@ namespace TFE_JEU_ECHECS
                 "♖","♘","♗","♕","♔","♗","♘","♖"
             };
 
+            int j = 0;
+            int i = 0;
+
             foreach (Button button in grdPlate.Children.OfType<Button>())
-            {
-                int j = 0;
-                int i = 0;
+            {              
                 if (button.Content == "?")
                 {
                     button.Content = pieces[0];
-                    plate[i,j] = pieces[0];
                     pieces.RemoveAt(0);
+
+                    //memPlate[i, j] = 1;
+                }
+                else
+                {                   
+                    //memPlate[i, j] = 0;
                 }
 
-                if(pieces[0] == "♟" || pieces[0] == "♙")
-                {
-                    Pawn pawns = new Pawn(,false, false, true, );
-                }
-                
-                if(i < 8)
+                if (i < 8)
                 {
                     i++;
                 }
