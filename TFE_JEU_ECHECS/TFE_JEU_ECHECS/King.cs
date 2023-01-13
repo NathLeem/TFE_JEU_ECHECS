@@ -9,7 +9,8 @@ namespace TFE_JEU_ECHECS
         private bool _check;
         private bool _checkMate;
 
-        public King()
+
+        public King(int[] position, string color) : base(position, color)
         {
             _check = false;
             _checkMate = false;

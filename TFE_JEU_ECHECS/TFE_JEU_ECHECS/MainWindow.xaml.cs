@@ -107,11 +107,11 @@ namespace TFE_JEU_ECHECS
                     button.Content = pieces[0];
                     pieces.RemoveAt(0);
 
-                    //memPlate[i, j] = 1;
+
                 }
                 else
                 {                   
-                    //memPlate[i, j] = 0;
+
                 }
 
                 if (i < 8)
