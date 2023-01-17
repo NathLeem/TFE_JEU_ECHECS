@@ -21,18 +21,21 @@ namespace TFE_JEU_ECHECS
     public partial class MainWindow : Window
     {
         Button[,] cases = new Button[8, 8];
-        public int[,] memPlate = new int[8, 8];
+        Piece[,] memPlate = new Piece[8, 8];
+
+        int click = 0;
         public MainWindow()
         {
             InitializeComponent();
             Interface();
             SetUpGame();
+            SetUpMem();
 
             for (int i = 0; i < cases.GetLength(0); i++)
             {
                 for (int j = 0; j < cases.GetLength(1); j++)
                 {
-                    cases[i, j].MouseUp += new MouseButtonEventHandler(ShowCases);
+                    cases[i, j].Click += new RoutedEventHandler(ShowCases);
                 }
             }
         }
@@ -126,13 +129,93 @@ namespace TFE_JEU_ECHECS
             }
         }
 
-        public void ShowCases(object sender, MouseEventArgs e)
+        public void SetUpMem()
         {
-            int nLigne;
-            int nColonne;
-            SplitName(((Button)sender).Name, out nLigne, out nColonne);
+            int[] pt1 = new int[2] { 0, 0 };
+            memPlate[0, 0] = new Tower(pt1, "black");
 
-            switch (cases[nLigne, nColonne].Name)
+            int[] pt2 = new int[2] { 0, 7 };
+            memPlate[0, 7] = new Tower(pt1, "black");
+
+            int[] pt3 = new int[2] { 7, 0 };
+            memPlate[7, 0] = new Tower(pt1, "white");
+
+            int[] pt4 = new int[2] { 7, 7 };
+            memPlate[0, 7] = new Tower(pt1, "white");
+
+
+            int[] ph1 = new int[2] { 0, 1 };
+            memPlate[0, 1] = new Horse(ph1, "black");
+
+            int[] ph2 = new int[2] { 0, 6 };
+            memPlate[0, 6] = new Horse(ph1, "black");
+
+            int[] ph3 = new int[2] { 7, 1 };
+            memPlate[0, 1] = new Horse(ph1, "white");
+
+            int[] ph4 = new int[2] { 7, 6 };
+            memPlate[0, 1] = new Horse(ph1, "white");
+
+
+            int[] pb1 = new int[2] { 0, 2};
+            memPlate[0, 2] = new Bishop(pb1, "black");
+
+            int[] pb2 = new int[2] { 0, 5 };
+            memPlate[0, 5] = new Bishop(pb1, "black");
+
+            int[] pb3 = new int[2] { 7, 2 };
+            memPlate[7, 2] = new Bishop(pb1, "white");
+
+            int[] pb4 = new int[2] { 7, 5 };
+            memPlate[7, 5] = new Bishop(pb1, "white");
+
+
+            int[] pq1 = new int[2] { 0, 3};
+            memPlate[0, 3] = new Queen(pq1, "black");
+
+            int[] pq2 = new int[2] { 7, 3 };
+            memPlate[7, 3] = new Queen(pq1, "white");
+
+
+            int[] pk1 = new int[2] { 0, 4 };
+            memPlate[0, 4] = new King(pk1, "black");
+
+            int[] pk2 = new int[2] { 7, 4 };
+            memPlate[7, 4] = new King(pk1, "white");
+
+            int[] pp1 = new int[2] { 1, 0 };
+            for (int i = 0; i < memPlate.GetLength(0); i++)
+            {
+                pp1[1] = i;
+                memPlate[1, i] = new Pawn(pp1, "black");
+            }
+
+            int[] pp2 = new int[2] { 6, 0 };
+            for (int i = 0; i < memPlate.GetLength(0); i++)
+            {
+                pp1[1] = i;
+                memPlate[6, i] = new Pawn(pp1, "black");
+            }
+        }
+        public void ShowCases(object sender, RoutedEventArgs e)
+        {
+            int[] nLigne = new int[2];
+            int[] nColonne = new int[2];
+
+            if(click == 0)
+            {
+                SplitName(((Button)sender).Name, ref nLigne, ref nColonne, click);
+                click++;
+            }
+            else
+            {
+                cases[nLigne[2], nColonne[2]].Content = cases[nLigne[1], nColonne[1]];
+                cases[nLigne[1], nColonne[1]].Content = false;
+
+                click = 0;
+            }
+            
+            /*switch (cases[nLigne, nColonne].Name)
             {
                 case "♟":
 
@@ -181,16 +264,16 @@ namespace TFE_JEU_ECHECS
                 case "♔":
 
                     break;
-            }
+            }*/
         }
 
-        public void SplitName(string nomCase, out int nLigne, out int nColonne)
+        public void SplitName(string nomCase, ref int[] nLigne, ref int[] nColonne, int click)
         {
             string[] nom = nomCase.Split('_');
 
-            int.TryParse(nom[1], out nLigne);
+            int.TryParse(nom[1], out nLigne[click]);
 
-            int.TryParse(nom[2], out nColonne);
+            int.TryParse(nom[2], out nColonne[click]);
         }
     }
 }
