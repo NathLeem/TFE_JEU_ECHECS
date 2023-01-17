@@ -17,9 +17,21 @@ namespace TFE_JEU_ECHECS
     /// </summary>
     public partial class Menu : Window
     {
+        MainWindow PageGame = new MainWindow();
         public Menu()
         {
             InitializeComponent();
+            btnLaunch.Click += new RoutedEventHandler(StartGame);
+            btnRules.Click += new RoutedEventHandler(GoRules);
+        }
+
+        public void StartGame(object sender, RoutedEventArgs e) 
+        {
+            PageGame.Show();
+            this.Visibility = Visibility.Hidden;
+        }
+        public void GoRules(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

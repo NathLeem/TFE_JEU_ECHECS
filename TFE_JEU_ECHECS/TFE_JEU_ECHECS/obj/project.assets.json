@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\200198.asty-moulin\\.nuget\\packages\\": {},
+    "C:\\Users\\200253.asty-moulin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS.csproj",
+      "projectUniqueName": "H:\\6TI\\Progra\\ExGit\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS.csproj",
       "projectName": "TFE_JEU_ECHECS",
-      "projectPath": "H:\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS.csproj",
-      "packagesPath": "C:\\Users\\200198.asty-moulin\\.nuget\\packages\\",
-      "outputPath": "H:\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\obj\\",
+      "projectPath": "H:\\6TI\\Progra\\ExGit\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS.csproj",
+      "packagesPath": "C:\\Users\\200253.asty-moulin\\.nuget\\packages\\",
+      "outputPath": "H:\\6TI\\Progra\\ExGit\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\TFE_JEU_ECHECS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\200198.asty-moulin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\200253.asty-moulin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
