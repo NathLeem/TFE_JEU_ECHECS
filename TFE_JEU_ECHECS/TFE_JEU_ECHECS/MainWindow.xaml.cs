@@ -29,7 +29,7 @@ namespace TFE_JEU_ECHECS
             InitializeComponent();
             Interface();
             SetUpGame();
-            SetUpMem();
+            SetUpMem(); //Coucou je fais du contenu pour pouvoir commit
 
             for (int i = 0; i < cases.GetLength(0); i++)
             {
