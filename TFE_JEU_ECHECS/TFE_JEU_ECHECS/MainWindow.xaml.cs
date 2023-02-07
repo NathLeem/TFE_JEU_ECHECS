@@ -24,12 +24,15 @@ namespace TFE_JEU_ECHECS
         Piece[,] memPlate = new Piece[8, 8];
 
         int click = 0;
+
+        public int[] nLigne = new int[2];
+        public int[] nColonne = new int[2];
         public MainWindow()
         {
             InitializeComponent();
             Interface();
             SetUpGame();
-            SetUpMem(); //Coucou je fais du contenu pour pouvoir commit
+            SetUpMem(); 
 
             for (int i = 0; i < cases.GetLength(0); i++)
             {
@@ -199,19 +202,22 @@ namespace TFE_JEU_ECHECS
         }
         public void ShowCases(object sender, RoutedEventArgs e)
         {
-            int[] nLigne = new int[2];
-            int[] nColonne = new int[2];
-
             if(click == 0)
             {
                 SplitName(((Button)sender).Name, ref nLigne, ref nColonne, click);
-                click++;
+                if(cases[nLigne[0], nColonne[0]].Content != "")
+                {
+                    click++;
+                }          
             }
             else
             {
-                cases[nLigne[2], nColonne[2]].Content = cases[nLigne[1], nColonne[1]];
-                cases[nLigne[1], nColonne[1]].Content = false;
-
+                if(cases[nLigne[1], nColonne[1]].Content != cases[nLigne[0], nColonne[0]].Content)
+                {
+                    SplitName(((Button)sender).Name, ref nLigne, ref nColonne, click);
+                    cases[nLigne[1], nColonne[1]].Content = cases[nLigne[0], nColonne[0]].Content;
+                    cases[nLigne[0], nColonne[0]].Content = "";
+                }
                 click = 0;
             }
             
@@ -271,9 +277,24 @@ namespace TFE_JEU_ECHECS
         {
             string[] nom = nomCase.Split('_');
 
-            int.TryParse(nom[1], out nLigne[click]);
+            if(click != 0)
+            {
+                int nLigne1 = nLigne[0];
+                int nColonne1 = nColonne[0];
 
-            int.TryParse(nom[2], out nColonne[click]);
+                int.TryParse(nom[1], out nLigne[click]);
+
+                int.TryParse(nom[2], out nColonne[click]);
+
+                nLigne[0] = nLigne1;
+                nColonne[0] = nColonne1;
+            }
+            else
+            {
+                int.TryParse(nom[1], out nLigne[click]);
+
+                int.TryParse(nom[2], out nColonne[click]);
+            }
         }
     }
 }
