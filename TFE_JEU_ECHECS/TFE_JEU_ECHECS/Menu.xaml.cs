@@ -32,6 +32,7 @@ namespace TFE_JEU_ECHECS
         }
         public void GoRules(object sender, RoutedEventArgs e)
         {
+            System.Diagnostics.Process.Start("https://en.wikipedia.org/wiki/Rules_of_chess");
         }
     }
 }
